@@ -1413,10 +1413,11 @@ a {
     left: 50%;
     transform: translateX(-50%);
     z-index: var(--z-pill);
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    padding: 1rem 2rem;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
     background: rgba(26, 26, 26, 0.95);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(201, 169, 98, 0.3);
@@ -1429,6 +1430,7 @@ a {
     cursor: pointer;
     transition: var(--transition-spring);
     box-shadow: 0 8px 32px rgba(26, 26, 26, 0.4);
+    white-space: nowrap;
 }
 
 .booking-pill:hover {
@@ -2212,27 +2214,170 @@ a {
     color: var(--color-pure-white);
 }
 
-.instagram-cta {
+.instagram-icon-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    padding: 0.75rem 1.5rem;
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: var(--color-pure-white);
-    border-radius: var(--radius-full);
-    font-size: 0.9rem;
-    font-weight: 500;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(201, 169, 98, 0.1), rgba(201, 169, 98, 0.2));
+    border: 1px solid var(--color-accent);
+    border-radius: 50%;
+    color: var(--color-accent);
     transition: var(--transition-base);
 }
 
-.instagram-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(220, 39, 67, 0.3);
+.instagram-icon-link:hover {
+    background: var(--color-accent);
+    color: var(--color-pure-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(201, 169, 98, 0.3);
 }
 
-.instagram-cta i {
-    width: 18px;
-    height: 18px;
+.instagram-icon-link i {
+    width: 22px;
+    height: 22px;
+}
+
+.instagram-cta {
+    display: none;
+}
+
+/* ============================================
+   VIDEO LIGHTBOX
+   ============================================ */
+
+.video-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    z-index: 1;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.video-lightbox.active .lightbox-container {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--color-pure-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-base);
+    z-index: 2;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.lightbox-video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: #000;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.lightbox-video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.lightbox-title {
+    text-align: center;
+    color: var(--color-pure-white);
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin-top: var(--spacing-md);
+    font-style: italic;
+}
+
+/* ============================================
+   IMAGE PLACEHOLDER SYSTEM
+   ============================================ */
+
+.image-placeholder {
+    width: 100%;
+    min-height: 200px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(201, 169, 98, 0.1);
+    border-radius: 50%;
+}
+
+.placeholder-icon i {
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent);
+}
+
+.placeholder-text {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    max-width: 200px;
 }
 
 /* Gallery Disclaimer */
