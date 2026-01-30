@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Ana's Beauty Lab - Houston's Premier Luxury Esthetician. Experience transformative facials, lash lifts, and custom skincare in our exclusive Houston studio.">
+    <meta name="keywords" content="esthetician Houston TX, facial Houston, lash lift Houston, skincare Houston Texas, beauty studio Houston, microdermabrasion Houston, chemical peel Houston">
+    <meta name="geo.position" content="29.7604;-95.3698">
+    <meta name="geo.placename" content="Houston, TX">
+    <meta name="geo.region" content="US-TX">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ana's Beauty Lab | Houston's Premier Luxury Esthetician">
+    <meta property="og:description" content="Experience transformative skincare in our exclusive Houston studio. Book your glow today.">
+    <meta property="og:type" content="business.business">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="business:contact_data:locality" content="Houston">
+    <meta property="business:contact_data:region" content="TX">
+    <meta property="business:contact_data:country_name" content="USA">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ana's Beauty Lab | Houston's Premier Glow">
+    <meta name="twitter:description" content="Luxury skincare studio in Houston, TX">
+    
+    <title>Ana's Beauty Lab | Houston's Premier Luxury Esthetician</title>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": "Ana's Beauty Lab",
+        "image": "https://anasbeautylab.com/assets/images/studio-hero.jpg",
+        "url": "https://anasbeautylab.com",
+        "telephone": "+1-832-696-3965",
+        "email": "hello@anasbeautyylab.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "11718 Teaneck Dr",
+            "addressLocality": "Houston",
+            "addressRegion": "TX",
+            "postalCode": "77089",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 29.7604,
+            "longitude": -95.3698
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "19:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "10:00",
+                "closes": "18:00"
+            }
+        ],
+        "priceRange": "$$$",
+        "servesCuisine": "Beauty and Skincare Services",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127"
+        },
+        "sameAs": [
+            "https://www.instagram.com/anasbeautyylab",
+            "https://www.facebook.com/anasbeautylab"
+        ]
+    }
+    </script>
+    
+    <!-- FAQ Schema for AEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How to protect skin from Houston humidity?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In Houston's humid climate, protecting your skin requires lightweight, non-comedogenic moisturizers, regular exfoliation to prevent clogged pores, and SPF 50+ sunscreen. At Ana's Beauty Lab, we customize treatments for Houston's unique weather conditions, incorporating hydrating facials with oil-control properties."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the best facial for Houston weather?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The best facial for Houston's climate balances hydration with oil control. Our signature 'Houston Glow' facial combines deep cleansing, gentle exfoliation, and hyaluronic acid infusion to combat humidity-induced breakouts while maintaining moisture balance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How often should you get a facial in Houston?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In Houston's humid subtropical climate, we recommend monthly facials to maintain skin health. The combination of heat, humidity, and urban pollution can accelerate skin aging and congestion. Regular professional treatments at Ana's Beauty Lab help maintain your glow year-round."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Noise Texture Overlay -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Dynamic Gradient Mesh Background -->
+    <div class="gradient-mesh" id="gradientMesh"></div>
+    
+    <!-- Glassmorphism Navigation -->
+    <nav class="nav-glass" id="mainNav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo bl-monogram" aria-label="Ana's Beauty Lab Home">
+                <div class="logo-inner">
+                    <span class="letter-b">B</span>
+                    <span class="divider"></span>
+                    <span class="letter-l">L</span>
+                </div>
+                <span class="brand-text">ANASBEAUTYYLAB</span>
+            </a>
+            <div class="nav-links">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-cta" aria-label="Book appointment">Book Now</button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section - Expanding Portal -->
+    <section id="hero" class="hero-section" aria-label="Welcome to Ana's Beauty Lab">
+        <!-- Floating Particles -->
+        <div class="floating-particle" style="top: 20%; left: 15%;"></div>
+        <div class="floating-particle" style="top: 60%; right: 20%;"></div>
+        <div class="floating-particle" style="top: 40%; left: 80%;"></div>
+        
+        <div class="hero-portal-container">
+            <div class="portal-lens" id="portalLens">
+                <div class="portal-content">
+                    <video autoplay muted loop playsinline class="portal-video" poster="assets/images/hero-poster.jpg">
+                        <source src="assets/videos/serum-cinemagraph.mp4" type="video/mp4">
+                    </video>
+                    <div class="portal-overlay"></div>
+                </div>
+            </div>
+            <div class="hero-text-layer" id="heroText">
+                <p class="hero-subtitle">Houston's Premier</p>
+                <h1 class="hero-title">
+                    <span class="title-line">Luxury</span>
+                    <span class="title-line">Esthetician</span>
+                </h1>
+                <p class="hero-tagline">Helping women rediscover their confidence through transformative skincare</p>
+                <div class="elegant-divider" style="margin-top: 2rem;"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span class="scroll-text">Discover</span>
+        </div>
+    </section>
+    
+    <!-- Magnetic Parallax Section - About -->
+    <section id="about" class="about-section">
+        <!-- Decorative Elements -->
+        <div class="decorative-circle decorative-circle-gold" style="width: 400px; height: 400px; top: 10%; left: -5%;"></div>
+        <div class="decorative-circle decorative-circle-gray" style="width: 300px; height: 300px; bottom: 20%; right: -5%;"></div>
+        
+        <div class="parallax-container">
+            <div class="parallax-text-layer" data-speed="0.2">
+                <span class="section-number">01</span>
+                <h2 class="section-title magnetic-text">The Art of<br>Radiance</h2>
+                <div class="elegant-divider-left"></div>
+                <p class="section-description">
+                    At Ana's Beauty Lab, I believe skincare is self-care elevated to an art form. 
+                    With over 5 years of experience and a deep passion for helping women feel confident 
+                    in their skin, I've created a sanctuary in southeast Houston where science-backed 
+                    treatments meet luxurious, personalized care.
+                </p>
+                <p class="section-description" style="margin-top: 1rem;">
+                    Every treatment is customized to your unique skin concerns, lifestyle, and goals. 
+                    Whether you're battling Houston humidity, seeking age-defying solutions, or simply 
+                    need a moment of relaxation, I'm here to guide your journey to radiant, healthy skin.
+                </p>
+                <div class="signature-block">
+                    <p class="signature-name">— Analie</p>
+                    <p class="signature-title">Licensed Esthetician & Founder</p>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="trust-badges trust-badges-left">
+                    <div class="trust-badge">
+                        <i data-lucide="award"></i>
+                        <span>Licensed Professional</span>
+                    </div>
+                    <div class="trust-badge">
+                        <i data-lucide="heart"></i>
+                        <span>500+ Happy Clients</span>
+                    </div>
+                </div>
+            </div>
+            <div class="parallax-image-layer" data-speed="0.6">
+                <div class="image-container float-image" style="position: relative;">
+                    <div class="corner-accent corner-accent-tl"></div>
+                    <div class="corner-accent corner-accent-br"></div>
+                    <img src="assets/images/ana-portrait.jpg" 
+                         alt="Analie - Licensed Esthetician Houston TX - Ana's Beauty Lab founder performing facial treatment" 
+                         class="about-image"
+                         loading="lazy">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+            <div class="parallax-accent-layer" data-speed="0.9">
+                <div class="accent-shape"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services - Horizontal Strips -->
+    <section id="services" class="services-section" aria-labelledby="services-heading">
+        <div class="services-header">
+            <h2 id="services-heading" class="section-title">Curated Services</h2>
+            <p class="section-subtitle">Each treatment tailored to your unique skin journey</p>
+        </div>
+        
+        <div class="services-container">
+            <!-- Service Strip 1 -->
+            <article class="service-strip" data-service="signature-facial">
+                <div class="strip-preview">
+                    <span class="strip-number">01</span>
+                    <h3 class="strip-title">Signature Glow Facial</h3>
+                    <span class="strip-duration">75 min</span>
+                    <i data-lucide="chevron-right" class="strip-icon"></i>
+                </div>
+                <div class="strip-expanded">
+                    <div class="expanded-content">
+                        <img src="assets/images/facial-service.jpg" 
+                             alt="Signature Glow Facial treatment at Ana's Beauty Lab Houston TX - professional skincare" 
+                             class="service-image"
+                             loading="lazy">
+                        <div class="service-details">
+                            <h4>Signature Glow Facial</h4>
+                            <p class="service-description">
+                                Our most requested treatment combines deep cleansing, enzyme exfoliation, 
+                                and LED therapy to reveal luminous skin. Perfect for Houston's humid climate, 
+                                this facial balances hydration while controlling excess oil.
+                            </p>
+                            <ul class="service-features">
+                                <li>Double cleanse with enzyme exfoliation</li>
+                                <li>Custom mask for your skin type</li>
+                                <li>LED light therapy session</li>
+                                <li>Signature facial massage</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="price">$185</span>
+                                <button class="book-service-btn">Book This Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Service Strip 2 -->
+            <article class="service-strip" data-service="lash-lift">
+                <div class="strip-preview">
+                    <span class="strip-number">02</span>
+                    <h3 class="strip-title">Lash Lift & Tint</h3>
+                    <span class="strip-duration">60 min</span>
+                    <i data-lucide="chevron-right" class="strip-icon"></i>
+                </div>
+                <div class="strip-expanded">
+                    <div class="expanded-content">
+                        <img src="assets/images/lash-service.jpg" 
+                             alt="Lash Lift and Tint treatment Houston TX - Ana's Beauty Lab - natural lash enhancement" 
+                             class="service-image"
+                             loading="lazy">
+                        <div class="service-details">
+                            <h4>Lash Lift & Tint</h4>
+                            <p class="service-description">
+                                Transform your natural lashes with our keratin-infused lift treatment. 
+                                Wake up every morning with perfectly curled, tinted lashes that last 6-8 weeks. 
+                                No extensions needed—just your lashes, elevated.
+                            </p>
+                            <ul class="service-features">
+                                <li>Keratin lash lift treatment</li>
+                                <li>Custom tint color matching</li>
+                                <li>Nourishing lash conditioning</li>
+                                <li>Lasts 6-8 weeks</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="price">$125</span>
+                                <button class="book-service-btn">Book This Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Service Strip 3 -->
+            <article class="service-strip" data-service="chemical-peel">
+                <div class="strip-preview">
+                    <span class="strip-number">03</span>
+                    <h3 class="strip-title">Advanced Chemical Peel</h3>
+                    <span class="strip-duration">45 min</span>
+                    <i data-lucide="chevron-right" class="strip-icon"></i>
+                </div>
+                <div class="strip-expanded">
+                    <div class="expanded-content">
+                        <img src="assets/images/peel-service.jpg" 
+                             alt="Advanced Chemical Peel treatment Houston Texas - professional skincare at Ana's Beauty Lab" 
+                             class="service-image"
+                             loading="lazy">
+                        <div class="service-details">
+                            <h4>Advanced Chemical Peel</h4>
+                            <p class="service-description">
+                                Customized chemical peels ranging from gentle enzyme treatments to 
+                                advanced TCA peels. Address hyperpigmentation, fine lines, and acne scars 
+                                with clinical-grade solutions in our Houston studio.
+                            </p>
+                            <ul class="service-features">
+                                <li>Skin analysis & custom peel selection</li>
+                                <li>Professional-grade acid blends</li>
+                                <li>Post-treatment care kit included</li>
+                                <li>Progressive results over 3-5 days</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="price">Starting at $150</span>
+                                <button class="book-service-btn">Book This Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Service Strip 4 -->
+            <article class="service-strip" data-service="microdermabrasion">
+                <div class="strip-preview">
+                    <span class="strip-number">04</span>
+                    <h3 class="strip-title">Diamond Microdermabrasion</h3>
+                    <span class="strip-duration">50 min</span>
+                    <i data-lucide="chevron-right" class="strip-icon"></i>
+                </div>
+                <div class="strip-expanded">
+                    <div class="expanded-content">
+                        <img src="assets/images/micro-service.jpg" 
+                             alt="Diamond Microdermabrasion treatment Houston TX - Ana's Beauty Lab - skin resurfacing" 
+                             class="service-image"
+                             loading="lazy">
+                        <div class="service-details">
+                            <h4>Diamond Microdermabrasion</h4>
+                            <p class="service-description">
+                                Medical-grade diamond tip exfoliation removes dead skin cells and 
+                                stimulates collagen production. Ideal for treating sun damage, fine lines, 
+                                and uneven texture common in Houston's sunny climate.
+                            </p>
+                            <ul class="service-features">
+                                <li>Diamond tip crystal-free exfoliation</li>
+                                <li>Suction-based skin resurfacing</li>
+                                <li>Hydrating serum infusion</li>
+                                <li>No downtime, instant glow</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="price">$165</span>
+                                <button class="book-service-btn">Book This Service</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <!-- Featured Halloween Special Section -->
+    <section id="featured" class="featured-section">
+        <div class="section-header section-header-center">
+            <span class="featured-badge">Seasonal Special</span>
+            <h2 class="section-title">Halloween Steam Experience</h2>
+            <p class="section-subtitle">A hauntingly relaxing treatment</p>
+            <div class="elegant-divider"></div>
+        </div>
+        
+        <div class="featured-showcase">
+            <div class="featured-video-container">
+                <video autoplay muted loop playsinline class="featured-video">
+                    <source src="assets/videos/halloween-steam.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay">
+                    <div class="video-caption">
+                        <span class="caption-title">Enchanted Steam Ritual</span>
+                        <span class="caption-desc">Our signature Halloween treatment</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="featured-content">
+                <h3>Mystical Relaxation Awaits</h3>
+                <p>Experience the magic of our limited-edition Halloween steam treatment. Using therapeutic steam infused with botanical essences, this enchanting facial opens pores, detoxifies skin, and leaves you spellbindingly radiant.</p>
+                
+                <div class="featured-features">
+                    <div class="feature-item">
+                        <i data-lucide="sparkles"></i>
+                        <span>Aromatherapeutic steam infusion</span>
+                    </div>
+                    <div class="feature-item">
+                        <i data-lucide="moon"></i>
+                        <span>Calming botanical essences</span>
+                    </div>
+                    <div class="feature-item">
+                        <i data-lucide="wand-2"></i>
+                        <span>Deep pore purification</span>
+                    </div>
+                </div>
+                
+                <div class="featured-cta">
+                    <span class="featured-price">$145</span>
+                    <button class="book-service-btn">Book Halloween Special</button>
+                </div>
+                
+                <p class="featured-note">Available through October 31st • Limited appointments</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section with Cinemagraphs -->
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title centered">The Experience</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item large">
+                <video autoplay muted loop playsinline class="cinemagraph">
+                    <source src="assets/videos/halloween-steam.mp4" type="video/mp4">
+                </video>
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">The Steam Ritual</span>
+                    <span class="gallery-badge">Featured</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/gallery-1.jpg" 
+                     alt="Luxury facial treatment room at Ana's Beauty Lab Houston TX - serene spa environment" 
+                     loading="lazy">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Sanctuary</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/gallery-2.jpg" 
+                     alt="Premium skincare products used at Ana's Beauty Lab Houston Texas - professional grade" 
+                     loading="lazy">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">The Collection</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <video autoplay muted loop playsinline class="cinemagraph">
+                    <source src="assets/videos/serum-cinemagraph.mp4" type="video/mp4">
+                </video>
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">Liquid Gold</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="assets/images/gallery-3.jpg" 
+                     alt="Client receiving treatment at Ana's Beauty Lab Houston - professional esthetician care" 
+                     loading="lazy">
+                <div class="gallery-overlay">
+                    <span class="gallery-caption">The Transformation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="section-header section-header-center">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Client Love</h2>
+            <p class="section-subtitle">Real results, real confidence</p>
+            <div class="elegant-divider"></div>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "Analie has completely transformed my skin! After struggling with acne for years, 
+                    I finally have the clear, glowing complexion I've always wanted. Her personalized 
+                    approach and genuine care make every visit feel special."
+                </p>
+                <p class="testimonial-author">— Sarah M.</p>
+            </div>
+            
+            <div class="testimonial-card featured">
+                <div class="testimonial-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "The best facial I've ever had! Analie took the time to understand my skin concerns 
+                    and created a custom treatment plan. My skin has never looked better, and I always 
+                    leave feeling relaxed and rejuvenated. Worth every penny!"
+                </p>
+                <p class="testimonial-author">— Jessica K.</p>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "I've been going to Analie for over a year now, and my skin has improved dramatically. 
+                    She truly cares about her clients and goes above and beyond. Her studio is beautiful 
+                    and so peaceful. Highly recommend!"
+                </p>
+                <p class="testimonial-author">— Maria L.</p>
+            </div>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Happy Clients</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4.9</span>
+                <span class="stat-label">Star Rating</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact & Location Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 class="section-title">Visit Our Studio</h2>
+                <address class="studio-address">
+                    <p class="address-line">11718 Teaneck Dr</p>
+                    <p class="address-line">Houston, TX 77089</p>
+                </address>
+                <div class="contact-details">
+                    <a href="tel:+18326963965" class="contact-item">
+                        <i data-lucide="phone" class="contact-icon"></i>
+                        <span>(832) 696-3965</span>
+                    </a>
+                    <a href="mailto:hello@anasbeautyylab.com" class="contact-item">
+                        <i data-lucide="mail" class="contact-icon"></i>
+                        <span>hello@anasbeautyylab.com</span>
+                    </a>
+                </div>
+                <div class="hours-block">
+                    <h4>Studio Hours</h4>
+                    <div class="hours-grid">
+                        <span>Mon - Fri</span>
+                        <span>9:00 AM - 7:00 PM</span>
+                        <span>Saturday</span>
+                        <span>10:00 AM - 6:00 PM</span>
+                        <span>Sunday</span>
+                        <span>Closed</span>
+                    </div>
+                </div>
+                <a href="https://maps.apple.com/?q=Ana's+Beauty+Lab+11718+Teaneck+Dr+Houston+TX+77089" 
+                   class="navigate-btn" 
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i data-lucide="navigation" class="btn-icon"></i>
+                    <span>One-Tap Navigation</span>
+                </a>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.234567890123!2d-95.22345678901234!3d29.56789012345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDM0JzA0LjQiTiA5NcKwMTMnMjQuNCJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Map showing location of Ana's Beauty Lab in Houston, TX">
+                </iframe>
+                <div class="map-overlay">
+                    <div class="map-pin">
+                        <i data-lucide="map-pin" class="pin-icon"></i>
+                        <span class="pin-label">Ana's Beauty Lab</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AEO Beauty Intelligence Section (SEO-optimized) -->
+    <section class="beauty-intelligence" aria-labelledby="intelligence-heading">
+        <div class="intelligence-container">
+            <h2 id="intelligence-heading" class="section-title">Beauty Intelligence</h2>
+            <p class="intelligence-intro">Expert answers to your Houston skincare questions</p>
+            
+            <div class="faq-grid">
+                <article class="faq-item">
+                    <h3>How to protect skin from Houston humidity?</h3>
+                    <p>
+                        In Houston's humid climate, protecting your skin requires a strategic approach. 
+                        The combination of heat and moisture can lead to clogged pores and increased oil production. 
+                        We recommend lightweight, gel-based moisturizers that hydrate without heaviness. 
+                        Our Houston-specific treatments incorporate oil-controlling ingredients while maintaining 
+                        essential moisture balance.
+                    </p>
+                </article>
+                
+                <article class="faq-item">
+                    <h3>What is the best facial for Houston weather?</h3>
+                    <p>
+                        Houston's subtropical climate demands facials that address both hydration and oil control. 
+                        Our Signature Glow Facial is specifically designed for this environment, featuring enzymes 
+                        that gently exfoliate without stripping, combined with hyaluronic acid for deep hydration. 
+                        Regular monthly treatments help maintain optimal skin health year-round.
+                    </p>
+                </article>
+                
+                <article class="faq-item">
+                    <h3>How often should you get a facial in Houston?</h3>
+                    <p>
+                        In Houston's climate, we recommend monthly professional facials to counteract the effects 
+                        of heat, humidity, and urban pollution. This frequency allows for proper skin cell turnover 
+                        while addressing seasonal changes. During summer months, more frequent exfoliation treatments 
+                        may be beneficial for controlling excess oil and preventing breakouts.
+                    </p>
+                </article>
+                
+                <article class="faq-item">
+                    <h3>Best skincare routine for Texas heat?</h3>
+                    <p>
+                        A Texas heat skincare routine starts with a gentle, non-stripping cleanser, followed by 
+                        antioxidant serum (vitamin C is ideal), lightweight moisturizer, and SPF 50+ sunscreen. 
+                        In the evening, incorporate retinol or peptides for repair. Our estheticians customize 
+                        product recommendations based on your specific skin type and Houston's seasonal variations.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo bl-monogram">
+                    <div class="logo-inner">
+                        <span class="letter-b">B</span>
+                        <span class="divider"></span>
+                        <span class="letter-l">L</span>
+                    </div>
+                    <span class="brand-text">ANASBEAUTYYLAB</span>
+                </div>
+                <p class="footer-tagline">Houston's premier destination for luxury skincare</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/anasbeautyylab" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+                        <i data-lucide="instagram"></i>
+                    </a>
+                    <a href="https://facebook.com/anasbeautylab" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+                        <i data-lucide="facebook"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Signature Facials</a></li>
+                        <li><a href="#services">Lash Services</a></li>
+                        <li><a href="#services">Chemical Peels</a></li>
+                        <li><a href="#services">Microdermabrasion</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Ana</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ana's Beauty Lab. All rights reserved.</p>
+            <p class="footer-location">Houston, Texas</p>
+        </div>
+    </footer>
+    
+    <!-- Floating Booking Pill -->
+    <button class="booking-pill" id="bookingPill" aria-label="Open booking">
+        <span class="pill-text">Book Now</span>
+        <i data-lucide="arrow-up-right" class="pill-icon"></i>
+    </button>
+    
+    <!-- Booking Drawer Modal -->
+    <div class="booking-drawer" id="bookingDrawer" role="dialog" aria-labelledby="booking-title" aria-modal="true">
+        <div class="drawer-backdrop" id="drawerBackdrop"></div>
+        <div class="drawer-content">
+            <div class="drawer-branding">
+                <div class="bl-monogram" style="transform: scale(0.8); margin-bottom: 0.5rem;">
+                    <div class="logo-inner">
+                        <span class="letter-b">B</span>
+                        <span class="divider"></span>
+                        <span class="letter-l">L</span>
+                    </div>
+                </div>
+                <span class="drawer-brand-text">ANASBEAUTYYLAB</span>
+            </div>
+            
+            <div class="drawer-header">
+                <div class="drawer-header-content">
+                    <h2 id="booking-title" class="drawer-title">Book Your Experience</h2>
+                    <p class="drawer-subtitle">Choose your preferred service and time</p>
+                </div>
+                <button class="drawer-close" id="drawerClose" aria-label="Close booking">
+                    <i data-lucide="x" class="close-icon"></i>
+                </button>
+            </div>
+            </div>
+            <div class="drawer-body">
+                <iframe 
+                    src="https://squareup.com/appointments/book/anasbeautylab" 
+                    class="booking-iframe"
+                    title="Book an appointment at Ana's Beauty Lab">
+                </iframe>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/lenis-init.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/gyroscope.js"></script>
+</body>
+</html>

@@ -1,0 +1,379 @@
+
+/* ============================================
+   ANA'S BEAUTY LAB - ANIMATIONS
+   GSAP ScrollTrigger Animations
+   ============================================ */
+
+/* Initial States for GSAP */
+.hero-text-layer {
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.scroll-indicator {
+    opacity: 0;
+}
+
+.section-title,
+.section-description,
+.signature-block {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.about-image {
+    opacity: 0;
+    transform: scale(0.9) translateX(50px);
+}
+
+.accent-shape {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.services-header .section-title,
+.services-header .section-subtitle {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.service-strip {
+    opacity: 0;
+    transform: translateX(-60px);
+}
+
+.gallery-section .section-title {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.gallery-item {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.contact-info > * {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.map-container {
+    opacity: 0;
+    transform: translateX(60px);
+}
+
+.faq-item {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.footer-brand,
+.footer-column {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Magnetic Text Effect */
+.magnetic-text {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Float Animation for Images */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(0.5deg);
+    }
+}
+
+.float-image {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Shimmer Effect for Buttons */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.book-service-btn::before,
+.nav-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.book-service-btn:hover::before,
+.nav-cta:hover::before {
+    opacity: 1;
+}
+
+/* Service Strip Animations */
+.service-strip {
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-strip.active {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Hover Glow */
+.image-glow {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-container:hover .image-glow {
+    opacity: 1;
+}
+
+/* Gallery Item Hover */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+                rgba(201, 169, 98, 0.15) 0%, 
+                transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+/* Navigation Scroll State */
+.nav-glass {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-glass.scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Parallax Layer Transforms */
+[data-speed] {
+    will-change: transform;
+}
+
+/* Booking Pill Pulse Animation */
+@keyframes pillPulse {
+    0%, 100% {
+        box-shadow: 0 8px 32px rgba(26, 26, 26, 0.4);
+    }
+    50% {
+        box-shadow: 0 8px 40px rgba(26, 26, 26, 0.5), 0 0 20px rgba(201, 169, 98, 0.25);
+    }
+}
+
+.booking-pill {
+    animation: pillPulse 3s ease-in-out infinite;
+}
+
+.booking-pill:hover {
+    animation: none;
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-medium-gray));
+    z-index: 9999;
+    transform-origin: left;
+    transform: scaleX(0);
+}
+
+/* Text Reveal Animation */
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+/* Curtain Reveal for Images */
+.curtain-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.curtain-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-pure-white);
+    transform: translateY(0);
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.curtain-reveal.revealed::after {
+    transform: translateY(-100%);
+}
+
+/* Service Strip Hover Effects */
+.strip-preview {
+    position: relative;
+}
+
+.strip-preview::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+                transparent, 
+                rgba(201, 169, 98, 0.03), 
+                transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.service-strip:hover .strip-preview::before {
+    transform: translateX(100%);
+}
+
+/* FAQ Item Hover */
+.faq-item {
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Social Links Animation */
+.social-links a {
+    position: relative;
+    overflow: hidden;
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--color-gold);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.social-links a:hover::before {
+    width: 150%;
+    height: 150%;
+}
+
+.social-links a svg {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    /* Reduce animation complexity on mobile */
+    .float-image {
+        animation: none;
+    }
+    
+    .booking-pill {
+        animation: none;
+    }
+    
+    /* Faster transitions on mobile */
+    .service-strip {
+        transition-duration: 0.4s;
+    }
+    
+    /* Disable parallax on mobile for performance */
+    [data-speed] {
+        transform: none !important;
+    }
+}
+
+/* High Performance Mode */
+@media (prefers-reduced-motion: reduce) {
+    .float-image,
+    .booking-pill,
+    .gradient-mesh::before {
+        animation: none;
+    }
+    
+    .service-strip,
+    .gallery-item,
+    .faq-item {
+        transition: none;
+    }
+}
+
+/* Loading State */
+.loading {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.loaded {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Focus States for Accessibility */
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 4px;
+}
+
+/* Active States */
+button:active,
+a:active {
+    transform: scale(0.98);
+}
+
+/* Selection Color */
+::selection {
+    background: rgba(201, 169, 98, 0.25);
+    color: var(--color-text-primary);
+}
